@@ -1,4 +1,4 @@
-const CourseResponse = (isSuccessfull, message, data) => {
+const SendResponse = (isSuccessfull, message, data) => {
     return (
         {
             isSuccessfull,
@@ -9,4 +9,4 @@ const CourseResponse = (isSuccessfull, message, data) => {
 
     )
 }
-module.exports = {CourseResponse}
+module.exports = {SendResponse}

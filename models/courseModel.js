@@ -1,22 +1,24 @@
 const mongoose = require('mongoose')
 const CourseScheema = mongoose.Schema({
-    Name: {
+    title: {
         type: String,
         require: true
     },
-    ShortName: {
+    description: {
         type: String,
         require: true
     },
-    courseFee: {
+    taskStatus: {
         type: String,
-        require: true
+        enum: ['pending', 'completed'], 
+        default: 'pending',
+
     }
 },
-{
-    timestamps:true
-})
+    {
+        timestamps: true
+    })
 
-const CourseModel = mongoose.model('/courses' , CourseScheema)
+const CourseModel = mongoose.model('/tasks', CourseScheema)
 
 module.exports = CourseModel
