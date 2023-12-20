@@ -16,6 +16,13 @@ const AuthScheema = mongoose.Schema({
         type: String,
         require: (true , "Password must be required")
     },
+    
+    userSelected: {
+        type: String,
+        enum: ['teamMembers' , 'users'],
+        default:'users'
+    },
+    
   
 
 })

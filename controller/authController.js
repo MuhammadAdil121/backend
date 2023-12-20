@@ -111,6 +111,22 @@ const AuthController = {
         catch (error) {
             res.send(SendResponse(false, 'Server Error', error))
         }
+    },
+    UserStatus : async (req, res) => {
+        try {
+            const TaskId = req.params.id
+            console.log(TaskId)
+            const UserJoined = await AuthModel.findByIdAndUpdate(TaskId, { userSelected: 'teamMembers' }, { new: true })
+            if (!UserJoined) {
+                res.json({message :'users', })
+            }
+            return  res.json(UserJoined)
+            
+        }
+        catch (error) {
+            res.send(SendResponse(false, 'Internal Server Error', error))
+
+        }
     }
 }
 
