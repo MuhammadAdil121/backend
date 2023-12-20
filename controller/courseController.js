@@ -68,7 +68,7 @@ const CourseController = {
             }
             else {
                 const result = await CourseModel.findByIdAndUpdate(id, obj)
-                res.status(200).send(SendResponse(true, "Updated Successfully", obj))
+                res.status(200).send(SendResponse(true, "Updated Successfully", result))
             }
         }
         catch (error) {
