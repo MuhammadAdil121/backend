@@ -1,6 +1,7 @@
 // teamController.js
 const Team = require('../models/teamModel');
-const AuthModel = require('../models/authModel')
+const AuthModel = require('../models/authModel');
+const { SendResponse } = require('../helpers/helpers');
 const TeamController = {
    createTeam: async (req, res) => {
     try {
@@ -34,6 +35,17 @@ const TeamController = {
       });
     }
   },
+  getTeams : async (req , res) => {
+    try{
+      console.log('ok')
+      const result = await Team.find()
+      res.send(SendResponse(true , 'All teams' , result))
+    }
+    catch(error){
+      res.send(SendResponse(false , 'server error' , error))
+    }
+ 
+  }
 };
 
 module.exports = TeamController;
